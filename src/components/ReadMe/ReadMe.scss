@@ -1,0 +1,52 @@
+.readme-section {
+  background-color: #0a0e12;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #3d444db3;
+
+  .icon-strip {
+    display: flex;
+    gap: 8px;
+    background-color: white;
+    padding: 6px;
+    border-radius: 4px; /* Rounded edges, optional */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow, optional */
+    width: fit-content; /* Adjusts to the content width */
+    margin-top: 16px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mono-text {
+    font-family: var(
+      --fontStack-monospace,
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace
+    ) !important;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: #c9d1d9;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #8b949e;
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,15 @@
+.edu-repositories-list {
+  margin-bottom: 20px;
+
+  h3 {
+    color: #c9d1d9;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .edu-repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+  }
+}

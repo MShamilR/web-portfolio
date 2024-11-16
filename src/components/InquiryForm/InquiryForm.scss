@@ -1,0 +1,98 @@
+.profile-form {
+  background-color: #0d1117;
+  padding: 20px 0;
+  border-radius: 8px;
+  //   width: 300px;
+  color: #ffffff;
+
+  .success-card {
+    color: #34d058;
+    background-color: #0d1117;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      //   font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      background-color: #0d1117;
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+  }
+
+  .main-button {
+    padding: 8px 0;
+    width: 100%;
+    background-color: #212830;
+    border: 1px solid #3d444d;
+  }
+
+  .main-button:hover {
+    background-color: #333f48; /* Slightly brighter shade of dark */
+  }
+
+  .errors {
+    color: #f85149;
+    margin-bottom: 10px;
+  }
+
+  .button-group {
+    // display: flex;
+    // justify-content: space-between;
+
+    .save-button,
+    .cancel-button {
+      margin-right: 8px;
+      padding: 8px;
+      border: 1px solid #3d444d;
+      border-radius: 4px;
+      //   font-weight: bold;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .save-button {
+      background-color: #28a745;
+      color: #ffffff;
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    .save-button:hover {
+      background-color: #34d058; /* Slightly brighter shade of green */
+    }
+
+    .cancel-button {
+      background-color: #212830;
+      color: #ffffff;
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    .cancel-button:hover {
+      background-color: #333f48; /* Slightly brighter shade of dark */
+    }
+  }
+}
