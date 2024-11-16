@@ -1,7 +1,6 @@
 import ReactGA from "react-ga4";
 
 export const initGA = () => {
-  console.log(import.meta.env.VITE_GA_MEASUREMENT_ID);
   ReactGA.initialize(import.meta.env.VITE_GA_MEASUREMENT_ID);
   ReactGA.send("pageview");
 };
