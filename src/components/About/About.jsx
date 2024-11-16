@@ -10,10 +10,20 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { logEvent } from "../../analytics";
 
 const About = () => {
   const [
-    { showForm, senderName, senderEmail, message, renderSuccessMsg, errors },
+    {
+      showForm,
+      senderName,
+      senderEmail,
+      message,
+      renderSuccessMsg,
+      apiError,
+      errors,
+      loading,
+    },
     setState,
   ] = useSetState({
     showForm: false,
@@ -22,10 +32,18 @@ const About = () => {
     message: "",
     errors: {},
     renderSuccessMsg: false,
+    apiError: false,
+    loading: false,
   });
 
   const handleShowForm = () => {
-    setState({ showForm: !showForm });
+    setState({
+      showForm: !showForm,
+      senderName: "",
+      senderEmail: "",
+      message: "",
+      apiError: false,
+    });
   };
 
   const validateForm = () => {
@@ -47,7 +65,7 @@ const About = () => {
         ...prevState,
         errors: {
           ...prevState.errors,
-          name: "Email cannot be empty",
+          email: "Email cannot be empty",
         },
       }));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail)) {
@@ -74,10 +92,12 @@ const About = () => {
   };
 
   const handleRenderSuccessMsg = () => {
+    logEvent("Inquiry Form", "Okay", "Acknowledge message received");
     setState({ renderSuccessMsg: !renderSuccessMsg });
   };
 
   const handleChange = ({ target: { name, value } }) => {
+    setState({ errors: {} });
     switch (name) {
       case "senderName":
         setState({ senderName: value });
@@ -95,10 +115,12 @@ const About = () => {
   };
 
   const handleSubmit = async () => {
+    setState({ apiError: false });
+    logEvent("Inquiry Form", "Send", "Click on the Send Button");
     const isError = validateForm();
     if (!isError) {
+      setState({ loading: true });
       const formData = new FormData();
-      console.log(import.meta.env.VITE_WEB3FORM_ACCESS_KEY);
 
       formData.append("access_key", import.meta.env.VITE_WEB3FORM_ACCESS_KEY);
       formData.append("name", senderName);
@@ -113,16 +135,17 @@ const About = () => {
       const data = await response.json();
 
       if (data.success) {
+        setState({ loading: false });
         setState({
           renderSuccessMsg: true,
           showForm: false,
           senderName: "",
           senderEmail: "",
-          message: false,
+          message: "",
+          apiError: false,
         });
       } else {
-        console.log("Error", data);
-        console.log(data.message);
+        setState({ loading: false, apiError: true });
       }
     }
   };
@@ -149,6 +172,8 @@ const About = () => {
           handleSubmit={handleSubmit}
           renderSuccessMsg={renderSuccessMsg}
           handleRenderSuccessMsg={handleRenderSuccessMsg}
+          loading={loading}
+          apiError={apiError}
         />
         {!showForm && (
           <div className="profile-summary">
@@ -163,7 +188,7 @@ const About = () => {
             <div>
               <FontAwesomeIcon icon={faEnvelope} className="icon" />
               <a
-                href="https://www.linkedin.com/in/mhdshamil/"
+                href="mailto:mohammedshamil0300@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >

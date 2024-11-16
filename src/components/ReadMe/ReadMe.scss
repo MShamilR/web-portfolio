@@ -1,5 +1,5 @@
 .readme-section {
-  background-color: #0a0e12;
+  background-color: #0d1117;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -48,5 +48,16 @@
     font-size: 1rem;
     color: #8b949e;
     margin: 5px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 15px;
+    p {
+      font-size: 0.9rem;
+    }
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
   }
 }

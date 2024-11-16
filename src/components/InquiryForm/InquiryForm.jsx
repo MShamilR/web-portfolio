@@ -12,6 +12,8 @@ const InquiryForm = ({
   handleSubmit,
   renderSuccessMsg,
   handleRenderSuccessMsg,
+  apiError,
+  loading,
 }) => {
   return (
     <div className="profile-form">
@@ -27,7 +29,7 @@ const InquiryForm = ({
           </button>
         </>
       )}
-      {!showForm && (
+      {!showForm && !renderSuccessMsg && (
         <button className="main-button" onClick={handleShowForm}>
           Send me a message
         </button>
@@ -73,10 +75,19 @@ const InquiryForm = ({
               </div>
             ))}
           </div>
+          {apiError && (
+            <div className="errors">
+              <small>Internet acting sus? Check it. 👀</small>
+            </div>
+          )}
 
           <div className="button-group">
-            <button className="save-button" onClick={handleSubmit}>
-              Send
+            <button
+              className="save-button"
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? "Wait" : "Send"}
             </button>
             <button className="cancel-button" onClick={handleShowForm}>
               Cancel

@@ -78,11 +78,16 @@
     .save-button {
       background-color: #28a745;
       color: #ffffff;
-      transition: background-color 0.3s ease; /* Smooth transition */
+      transition: background-color 0.3s ease, opacity 0.3s ease; /* Combined transition */
     }
 
     .save-button:hover {
       background-color: #34d058; /* Slightly brighter shade of green */
+    }
+
+    .save-button:disabled {
+      opacity: 0.5; /* Make the button semi-transparent when disabled */
+      cursor: not-allowed; /* Show the disabled cursor */
     }
 
     .cancel-button {

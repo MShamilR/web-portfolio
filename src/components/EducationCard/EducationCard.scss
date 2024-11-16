@@ -46,6 +46,16 @@
     }
   }
 
+  @media (max-width: 480px) {
+    h4 {
+      font-size: 0.9rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
   // &:hover {
   //   background-color: #21262d;
   // }
