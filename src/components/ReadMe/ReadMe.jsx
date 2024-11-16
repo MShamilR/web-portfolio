@@ -4,7 +4,7 @@ import digitalOcean from "../../assets/technologies/digital-ocean.svg";
 import express from "../../assets/technologies/express.svg";
 import git from "../../assets/technologies/git.svg";
 import github from "../../assets/technologies/github.svg";
-//import gitlab from "../../assets/technologies/gitlab.svg";
+import gitlab from "../../assets/technologies/gitlab.svg";
 import react from "../../assets/technologies/react.svg";
 import springBoot from "../../assets/technologies/spring-boot.png";
 // import java from "../../assets/technologies/java.svg";
@@ -35,7 +35,7 @@ const ReadMe = () => {
     { src: portainer, alt: "Portainer" },
     { src: git, alt: "Git" },
     { src: github, alt: "Github" },
-    //{ src: gitlab, alt: "Gitlab" },
+    { src: gitlab, alt: "Gitlab" },
   ];
   return (
     <div className="readme-section">
