@@ -1,19 +1,19 @@
 import React from "react";
 import "./ReadMe.scss";
-import digitalOcean from "../../assets/technologies/digital-ocean.svg";
-import express from "../../assets/technologies/express.svg";
-import git from "../../assets/technologies/git.svg";
-import github from "../../assets/technologies/github.svg";
-import gitlab from "../../assets/technologies/gitlab.svg";
-import react from "../../assets/technologies/react.svg";
-import springBoot from "../../assets/technologies/spring-boot.png";
+import digitalOcean from "/assets/technologies/digital-ocean.svg";
+import express from "/assets/technologies/express.svg";
+import git from "/assets/technologies/git.svg";
+import github from "/assets/technologies/github.svg";
+import gitlab from "/assets/technologies/gitlab.svg";
+import react from "/assets/technologies/react.svg";
+import springBoot from "/assets/technologies/spring-boot.png";
 // import java from "../../assets/technologies/java.svg";
 // import javaScript from "../../assets/technologies/javascript.svg";
-import typeScript from "../../assets/technologies/typescript.svg";
+import typeScript from "/assets/technologies/typescript.svg";
 // import nodeJS from "../../assets/technologies/node-js.svg";
-import portainer from "../../assets/technologies/portainer.svg";
-import sass from "../../assets/technologies/sass.svg";
-import jenkins from "../../assets/technologies/jenkins.svg";
+import portainer from "/assets/technologies/portainer.svg";
+import sass from "/assets/technologies/sass.svg";
+import jenkins from "/assets/technologies/jenkins.svg";
 
 // import digitalOcean from '../../assets/technologies/digital-ocean.svg'
 // import digitalOcean from '../../assets/technologies/digital-ocean.svg'
