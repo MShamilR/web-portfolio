@@ -43,6 +43,7 @@ const About = () => {
       senderEmail: "",
       message: "",
       apiError: false,
+      errors: {},
     });
   };
 
@@ -185,7 +186,7 @@ const About = () => {
               <FontAwesomeIcon icon={faMountain} className="icon" />
               <span>Hatton, Sri Lanka</span>
             </div>
-            <div>
+            {/* <div>
               <FontAwesomeIcon icon={faEnvelope} className="icon" />
               <a
                 href="mailto:mohammedshamil0300@gmail.com"
@@ -194,7 +195,7 @@ const About = () => {
               >
                 Email me!
               </a>
-            </div>
+            </div> */}
             <div>
               <FontAwesomeIcon icon={faLinkedin} className="icon" />
               <a
@@ -203,6 +204,16 @@ const About = () => {
                 rel="noopener noreferrer"
               >
                 in/mhdshamil
+              </a>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faEnvelope} className="icon" />
+              <a
+                href="mailto:mohammedshamil0300@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                mohammedshamil0300@gmail.com
               </a>
             </div>
           </div>
