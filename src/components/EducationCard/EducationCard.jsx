@@ -1,6 +1,6 @@
 import "./EducationCard.scss";
 
-const EducationCard = ({ institute, course, timeline, language, stars }) => {
+const EducationCard = ({ institute, course, timeline }) => {
   return (
     <div className="repository-card">
       <div className="title">
@@ -9,10 +9,6 @@ const EducationCard = ({ institute, course, timeline, language, stars }) => {
       </div>
 
       <p>{course}</p>
-      {/* <div className="repo-details">
-        <span>{language}</span>
-        <span>⭐ {stars}</span>
-      </div> */}
     </div>
   );
 };

@@ -7,16 +7,12 @@ const Education = () => {
     {
       institute: "University of Colombo, School of Computing",
       course: "Bachelor of Information Technology",
-      timeline: "Reading",
-      language: "Spring Boot, React",
-      stars: 1,
+      timeline: "2023",
     },
     {
       institute: "Calcey Technologies",
       course: "Calcey Springboard",
       timeline: "2023 - 2024",
-      language: "SpringBoot, React",
-      stars: 2,
     },
   ];
 
