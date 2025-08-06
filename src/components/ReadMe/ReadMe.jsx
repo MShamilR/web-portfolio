@@ -7,6 +7,7 @@ import github from "/assets/technologies/github.svg";
 import gitlab from "/assets/technologies/gitlab.svg";
 import react from "/assets/technologies/react.svg";
 import springBoot from "/assets/technologies/spring-boot.png";
+import nest from "/assets/technologies/nest.svg";
 // import java from "../../assets/technologies/java.svg";
 // import javaScript from "../../assets/technologies/javascript.svg";
 import typeScript from "/assets/technologies/typescript.svg";
@@ -22,6 +23,7 @@ import jenkins from "/assets/technologies/jenkins.svg";
 
 const ReadMe = () => {
   const icons = [
+    { src: nest, alt: "Nest" },
     { src: springBoot, alt: "Spring Boot" },
     //{ src: nodeJS, alt: "Node JS" },
     { src: express, alt: "Express" },

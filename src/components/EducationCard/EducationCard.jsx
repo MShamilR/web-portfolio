@@ -1,4 +1,3 @@
-import React from "react";
 import "./EducationCard.scss";
 
 const EducationCard = ({ institute, course, timeline, language, stars }) => {

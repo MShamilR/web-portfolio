@@ -7,14 +7,24 @@
     margin-bottom: 15px;
   }
 
-  .exp-repo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
+  .company-block {
+    margin-bottom: 40px; // adds space between different companies
 
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(1, 1fr); /* Example: 3 columns */
+    .company-name {
+      color: #c9d1d9;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
+    .exp-repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 20px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 }

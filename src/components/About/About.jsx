@@ -9,7 +9,7 @@ import {
   faMountain,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { logEvent } from "../../analytics";
 
 const About = () => {
@@ -196,6 +196,16 @@ const About = () => {
                 Email me!
               </a>
             </div> */}
+            <div>
+              <FontAwesomeIcon icon={faGithub} className="icon" />
+              <a
+                href="https://github.com/MShamilR"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                MShamilR
+              </a>
+            </div>{" "}
             <div>
               <FontAwesomeIcon icon={faLinkedin} className="icon" />
               <a
