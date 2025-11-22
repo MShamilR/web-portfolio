@@ -180,7 +180,7 @@ const About = () => {
           <div className="profile-summary">
             <div>
               <FontAwesomeIcon icon={faBuilding} className="icon" />
-              <span>Thyaga (thyaga.lk)</span>
+              <span>TOGGLE</span>
             </div>
             <div>
               <FontAwesomeIcon icon={faMountain} className="icon" />

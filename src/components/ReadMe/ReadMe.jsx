@@ -1,5 +1,6 @@
 import React from "react";
 import "./ReadMe.scss";
+import { logEvent } from "../../analytics";
 import digitalOcean from "/assets/technologies/digital-ocean.svg";
 import express from "/assets/technologies/express.svg";
 import git from "/assets/technologies/git.svg";
@@ -52,6 +53,17 @@ const ReadMe = () => {
         {icons.map((icon, index) => (
           <img key={index} src={icon.src} alt={icon.alt} className="icon" />
         ))}
+      </div>
+      <div className="resume-button-container" style={{ paddingTop: "1rem" }}>
+        <a
+          href="https://drive.google.com/file/d/1rvIOAm5E8QDguJRTKYzdyd6jbSOZW63x/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="resume-button"
+          onClick={() => logEvent("Resume", "View", "Click on View Resume")}
+        >
+          📄 View Resume
+        </a>
       </div>
     </div>
   );
