@@ -1,10 +1,13 @@
 import ExperienceCard from "../ExperienceCard/ExperienceCard";
 import "./Experience.scss";
+import toggleLogo from "../../assets/companies/toggle.png";
+import thyagaLogo from "../../assets/companies/thyaga.png";
 
 const Experience = () => {
   const companies = [
     {
       company: "TOGGLE",
+      logo: toggleLogo,
       experiences: [
         {
           title: "Software Engineer",
@@ -20,6 +23,8 @@ const Experience = () => {
     },
     {
       company: "Thyaga (thyaga.lk)",
+      logo: thyagaLogo,
+      logoWhiteBg: true,
       experiences: [
         {
           title: "Associate Software Engineer",
@@ -63,7 +68,7 @@ const Experience = () => {
           {/* <div className="company-name">{companyGroup.company}</div> */}
           <div className="exp-repo-grid">
             {companyGroup.experiences.map((exp, i) => (
-              <ExperienceCard key={i} {...exp} company={companyGroup.company} />
+              <ExperienceCard key={i} {...exp} company={companyGroup.company} logo={companyGroup.logo} logoWhiteBg={companyGroup.logoWhiteBg} />
             ))}
           </div>
         </div>

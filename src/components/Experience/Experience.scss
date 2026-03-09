@@ -2,16 +2,16 @@
   margin-bottom: 20px;
 
   h3 {
-    color: #c9d1d9;
+    color: var(--gh-text-primary);
     font-size: 1.3rem;
     margin-bottom: 15px;
   }
 
   .company-block {
-    margin-bottom: 40px; // adds space between different companies
+    margin-bottom: 40px;
 
     .company-name {
-      color: #c9d1d9;
+      color: var(--gh-text-primary);
       font-size: 1.1rem;
       margin-bottom: 10px;
       font-weight: 600;

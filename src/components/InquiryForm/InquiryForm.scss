@@ -1,16 +1,15 @@
 .profile-form {
-  background-color: #0d1117;
+  background-color: var(--gh-bg);
   padding: 20px 0;
   border-radius: 8px;
-  //   width: 300px;
-  color: #ffffff;
+  color: var(--gh-text-primary);
 
   .success-card {
-    color: #34d058;
-    background-color: #0d1117;
+    color: var(--gh-success);
+    background-color: var(--gh-bg);
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #30363d;
+    border: 1px solid var(--gh-border);
     text-align: center;
     font-size: 14px;
     margin-bottom: 10px;
@@ -22,7 +21,8 @@
     label {
       display: block;
       margin-bottom: 5px;
-      //   font-weight: bold;
+      color: var(--gh-text-primary);
+      font-size: 14px;
     }
 
     input,
@@ -30,12 +30,18 @@
     select {
       width: 100%;
       padding: 8px;
-      background-color: #0d1117;
-      border: 1px solid #444;
-      border-radius: 4px;
-      color: #ffffff;
+      background-color: var(--gh-input-bg);
+      border: 1px solid var(--gh-input-border);
+      border-radius: 6px;
+      color: var(--gh-text-primary);
       font-size: 14px;
       box-sizing: border-box;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--gh-link);
+      }
     }
 
     textarea {
@@ -45,59 +51,60 @@
   }
 
   .main-button {
-    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    background-color: #212830;
-    border: 1px solid #3d444d;
-  }
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gh-text-primary);
+    background-color: var(--gh-btn-secondary-bg);
+    border: 1px solid var(--gh-btn-secondary-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 
-  .main-button:hover {
-    background-color: #333f48; /* Slightly brighter shade of dark */
+    &:hover {
+      background-color: var(--gh-btn-secondary-hover);
+      border-color: var(--gh-btn-secondary-hover-border);
+    }
   }
 
   .errors {
-    color: #f85149;
+    color: var(--gh-error);
     margin-bottom: 10px;
   }
 
   .button-group {
-    // display: flex;
-    // justify-content: space-between;
-
     .save-button,
     .cancel-button {
       margin-right: 8px;
-      padding: 8px;
-      border: 1px solid #3d444d;
-      border-radius: 4px;
-      //   font-weight: bold;
+      padding: 5px 16px;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
       cursor: pointer;
       font-size: 12px;
+      font-weight: 500;
     }
 
     .save-button {
-      background-color: #28a745;
+      background-color: var(--gh-success);
       color: #ffffff;
-      transition: background-color 0.3s ease, opacity 0.3s ease; /* Combined transition */
-    }
+      border-color: rgba(240, 246, 252, 0.1);
+      transition: background-color 0.2s ease, opacity 0.2s ease;
 
-    .save-button:hover {
-      background-color: #34d058; /* Slightly brighter shade of green */
-    }
-
-    .save-button:disabled {
-      opacity: 0.5; /* Make the button semi-transparent when disabled */
-      cursor: not-allowed; /* Show the disabled cursor */
+      &:hover { background-color: var(--gh-success-hover); }
+      &:disabled { opacity: 0.5; cursor: not-allowed; }
     }
 
     .cancel-button {
-      background-color: #212830;
-      color: #ffffff;
-      transition: background-color 0.3s ease; /* Smooth transition */
-    }
+      background-color: var(--gh-btn-secondary-bg);
+      color: var(--gh-text-primary);
+      border-color: var(--gh-btn-secondary-border);
+      transition: background-color 0.2s ease;
 
-    .cancel-button:hover {
-      background-color: #333f48; /* Slightly brighter shade of dark */
+      &:hover { background-color: var(--gh-btn-secondary-hover); }
     }
   }
 }

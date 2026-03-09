@@ -1,0 +1,29 @@
+.services-strip {
+  margin-bottom: 20px;
+
+  h3 {
+    color: var(--gh-text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .services-box {
+    background-color: var(--gh-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: var(--gh-text-primary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    flex-wrap: wrap;
+
+    .service-label {
+      white-space: nowrap;
+    }
+
+    .sep {
+      color: var(--gh-border);
+      font-weight: bold;
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import EducationCard from "../EducationCard/EducationCard";
 import "./Education.scss";
+import uocLogo from "../../assets/education/uoc.png";
+import calceyLogo from "../../assets/education/calcey.webp";
 
 const Education = () => {
   const educations = [
@@ -8,11 +10,15 @@ const Education = () => {
       institute: "University of Colombo, School of Computing",
       course: "Bachelor of Information Technology",
       timeline: "2023",
+      logo: uocLogo,
+      logoWhiteBg: true,
     },
     {
       institute: "Calcey Technologies",
       course: "Calcey Springboard",
       timeline: "2023 - 2024",
+      logo: calceyLogo,
+      logoWhiteBg: true,
     },
   ];
 

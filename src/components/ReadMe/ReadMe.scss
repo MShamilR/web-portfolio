@@ -1,27 +1,40 @@
 .readme-section {
-  background-color: #0d1117;
+  background-color: var(--gh-bg);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  border: 1px solid #3d444db3;
+  border: 1px solid var(--gh-border-subtle);
 
-  .icon-strip {
+  .readme-header {
     display: flex;
-    gap: 8px;
-    background-color: white;
-    padding: 6px;
-    border-radius: 4px; /* Rounded edges, optional */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow, optional */
-    width: fit-content; /* Adjusts to the content width */
-    margin-top: 16px;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .icon {
-    width: 24px;
-    height: 24px;
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid var(--gh-border);
+    border-radius: 6px;
+    color: var(--gh-text-secondary);
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: var(--gh-btn-secondary-hover);
+      border-color: var(--gh-btn-secondary-hover-border);
+      color: var(--gh-text-primary);
+    }
   }
 
   .mono-text {
+    color: var(--gh-text-secondary);
     font-family: var(
       --fontStack-monospace,
       ui-monospace,
@@ -35,29 +48,44 @@
   }
 
   h2 {
+    color: var(--gh-text-primary);
     margin-bottom: 0;
   }
 
   h3 {
-    color: #c9d1d9;
+    color: var(--gh-text-primary);
     font-size: 1.2rem;
     margin-bottom: 10px;
   }
 
   p {
     font-size: 1rem;
-    color: #8b949e;
+    color: var(--gh-text-secondary);
     margin: 5px 0;
+  }
+
+  .cal-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #238636;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #2ea043;
+    }
   }
 
   @media (max-width: 480px) {
     padding: 15px;
-    p {
-      font-size: 0.9rem;
-    }
-    .icon {
-      width: 18px;
-      height: 18px;
-    }
+    p { font-size: 0.9rem; }
   }
 }

@@ -8,6 +8,7 @@ import {
   faBuilding,
   faMountain,
   faEnvelope,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { logEvent } from "../../analytics";
@@ -159,7 +160,7 @@ const About = () => {
       <div className="profile-details">
         <div className="profile-title">
           <h3>Mohammed Shamil</h3>
-          <h4>Software Engineer</h4>
+          <h4>Independent Software Developer</h4>
         </div>
 
         <InquiryForm
@@ -224,6 +225,16 @@ const About = () => {
                 rel="noopener noreferrer"
               >
                 mohammedshamil0300@gmail.com
+              </a>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faCalendar} className="icon" />
+              <a
+                href="https://cal.com/YOUR_USERNAME" // TODO: replace with your Cal.com link
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a call
               </a>
             </div>
           </div>

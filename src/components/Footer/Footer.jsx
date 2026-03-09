@@ -1,14 +1,9 @@
 import React from "react";
+import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        textAlign: "center",
-        color: "#8b949e",
-        fontSize: "0.9rem",
-      }}
-    >
+    <footer className="site-footer">
       <p>
         <span>&copy; {new Date().getFullYear()} MShamilR.</span>
         <span>&nbsp;</span>
@@ -18,7 +13,6 @@ const Footer = () => {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#58a6ff" }}
           >
             GitHub
           </a>
