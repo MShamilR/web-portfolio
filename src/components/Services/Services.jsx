@@ -3,8 +3,9 @@ import "./Services.scss";
 const services = [
   "MVP Development",
   "Technical Co-Founder",
-  "Custom Development",
-  "AI-Assisted Development",
+  "Custom Full-Stack Development",
+  "Third Party Integrations",
+  "AI-Accelarated Development",
   "Vibe Code Cleanup",
 ];
 
