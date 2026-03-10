@@ -160,7 +160,7 @@ const About = () => {
       <div className="profile-details">
         <div className="profile-title">
           <h3>Mohammed Shamil</h3>
-          <h4>Independent Software Developer</h4>
+          <h4>Software Engineer</h4>
         </div>
 
         <InquiryForm
@@ -227,7 +227,7 @@ const About = () => {
                 mohammedshamil0300@gmail.com
               </a>
             </div>
-            <div>
+            {/* <div>
               <FontAwesomeIcon icon={faCalendar} className="icon" />
               <a
                 href="https://cal.com/YOUR_USERNAME" // TODO: replace with your Cal.com link
@@ -236,7 +236,7 @@ const About = () => {
               >
                 Book a call
               </a>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
