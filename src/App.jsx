@@ -8,6 +8,7 @@ import ContactModal from "./components/ContactModal/ContactModal";
 import "./App.scss";
 import Education from "./components/Education/Education";
 import Footer from "./components/Footer/Footer";
+import AnnouncementBanner from "./components/AnnouncementBanner/AnnouncementBanner";
 
 const App = () => {
   const [theme, setTheme] = useState(
@@ -25,6 +26,7 @@ const App = () => {
 
   return (
     <div className="main-profile-page">
+      <AnnouncementBanner />
       <div className="body">
         <div className="left">
           <About />
