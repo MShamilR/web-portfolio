@@ -14,9 +14,9 @@ const ExperienceCard = ({ title, company, timeline, description, languages, logo
           <div className="experience-heading">
             <h4>{title}</h4>
             <p>{company}</p>
+            <span className="date-capsule">{timeline}</span>
           </div>
         </div>
-        <div className="date-capsule">{timeline}</div>
       </div>
       {description && <p className="experience-summary">{description}</p>}
       <div className="repo-details">
