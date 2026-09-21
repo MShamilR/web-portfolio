@@ -108,4 +108,8 @@
   @media (max-width: 1000px) {
     h2 { white-space: normal; }
   }
+
+  @media (max-width: 900px) {
+    .theme-toggle { display: none; }
+  }
 }

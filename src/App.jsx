@@ -10,6 +10,8 @@ import Education from "./components/Education/Education";
 import Footer from "./components/Footer/Footer";
 import AnnouncementBanner from "./components/AnnouncementBanner/AnnouncementBanner";
 import Projects from "./components/Projects/Projects";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   const [theme, setTheme] = useState(
@@ -27,6 +29,12 @@ const App = () => {
 
   return (
     <div className="main-profile-page">
+      <div className="mobile-toolbar">
+        <span>Portfolio</span>
+        <button onClick={toggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+          <FontAwesomeIcon icon={theme === "dark" ? faSun : faMoon} />
+        </button>
+      </div>
       <AnnouncementBanner />
       <div className="body">
         <div className="left">
