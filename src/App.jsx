@@ -9,6 +9,7 @@ import "./App.scss";
 import Education from "./components/Education/Education";
 import Footer from "./components/Footer/Footer";
 import AnnouncementBanner from "./components/AnnouncementBanner/AnnouncementBanner";
+import Projects from "./components/Projects/Projects";
 
 const App = () => {
   const [theme, setTheme] = useState(
@@ -38,12 +39,13 @@ const App = () => {
             toggleTheme={toggleTheme}
             onContact={() => setModalOpen(true)}
           />
+          <Projects />
           <Services />
           <Experience />
           <Education />
+          <Footer />
         </div>
       </div>
-      <Footer />
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );

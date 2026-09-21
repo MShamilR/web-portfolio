@@ -9,13 +9,17 @@
     align-self: center;
     img {
       border-radius: 50%;
-      max-width: 300px;
-      height: 300px;
+      width: min(100%, 260px);
+      aspect-ratio: 1;
+      height: auto;
+      object-fit: cover;
       border: 2px solid var(--gh-border);
     }
   }
 
   .profile-details {
+    min-width: 0;
+
     .profile-title {
       h3 {
         color: var(--gh-text-primary);
@@ -25,8 +29,9 @@
 
       h4 {
         color: var(--gh-text-secondary);
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         margin: 0;
+        white-space: nowrap;
       }
 
       @media (max-width: 480px) {
@@ -42,48 +47,95 @@
       display: flex;
       flex-wrap: wrap;
 
+      &::after {
+        content: "";
+        display: block;
+        flex: 0 0 118px;
+        width: 118px;
+        height: 1px;
+        margin-top: 14px;
+        background: var(--gh-border);
+      }
+
       div {
         flex: 1 1 100%;
+        min-width: 0;
         display: flex;
         align-items: center;
         padding-top: 0.5rem;
 
-        .icon {
+        .summary-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 26px;
+          height: 26px;
+          flex: 0 0 26px;
           color: var(--gh-text-secondary);
-          width: 16px;
-          height: 16px;
-          font-size: 16px;
-          margin-right: 12px;
+          background: var(--gh-btn-secondary-bg);
+          border: 1px solid var(--gh-border);
+          border-radius: 7px;
+          font-size: 12px;
+          margin-right: 8px;
         }
       }
     }
 
-    @media (max-width: 768px) {
+    .profile-bio {
+      color: var(--gh-text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin: 14px 0 6px;
+    }
+
+    .profile-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        color: var(--gh-text-secondary);
+        background: var(--gh-btn-secondary-bg);
+        border: 1px solid var(--gh-border);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+          color: var(--gh-text-primary);
+          border-color: var(--gh-text-secondary);
+          background: var(--gh-btn-secondary-hover);
+          text-decoration: none;
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
       .profile-title {
         text-align: center;
       }
 
       .profile-summary {
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 16px;
+
+        div { padding-top: 0; }
+
+        &::after { grid-column: 1 / -1; }
       }
 
-      .profile-summary div:nth-child(odd) {
-        flex: 0 1 40%;
-        justify-content: flex-start;
-      }
-
-      .profile-summary div:nth-child(even) {
-        flex: 0 1 60%;
-        justify-content: flex-end;
-      }
+      .profile-bio { max-width: 560px; margin: 14px auto; text-align: center; }
     }
 
     @media (max-width: 480px) {
-      .profile-summary div {
-        flex: 1 1 100% !important;
-        justify-content: flex-start !important;
-        display: flex !important;
-      }
+      .profile-summary { grid-template-columns: 1fr; max-width: 240px; margin: 0 auto; }
     }
 
     a {
@@ -91,6 +143,8 @@
       font-size: 0.9rem;
       text-decoration: none;
       display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
 
       &:hover {
         text-decoration: underline;
@@ -98,7 +152,23 @@
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 20px 0;
+  @media (max-width: 900px) {
+    padding: 16px 0 24px;
+
+    .profile-image img { width: 140px; }
+  }
+
+  @media (max-width: 480px) {
+    .profile-image {
+      align-self: flex-start;
+
+      img { width: 112px; }
+    }
+
+    .profile-details {
+      .profile-title { text-align: left; }
+      .profile-bio { margin: 14px 0; text-align: left; }
+      .profile-summary { margin: 0; }
+    }
   }
 }

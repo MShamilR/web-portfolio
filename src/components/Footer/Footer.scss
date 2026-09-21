@@ -1,9 +1,39 @@
 .site-footer {
+  width: fit-content;
+  margin: 0 auto;
   text-align: center;
   color: var(--gh-text-secondary);
   font-size: 0.9rem;
 
-  a {
-    color: var(--gh-link);
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 10px 0 4px;
+  }
+
+  .github-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &::before {
+      content: "·";
+      margin-right: 1px;
+      color: var(--gh-border);
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+      color: var(--gh-text-primary);
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.78rem;
+
+    p { flex-wrap: wrap; row-gap: 2px; }
   }
 }

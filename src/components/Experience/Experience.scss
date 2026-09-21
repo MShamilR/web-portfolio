@@ -22,9 +22,14 @@
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: 20px;
 
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         grid-template-columns: 1fr;
       }
     }
+  }
+
+  @media (max-width: 480px) {
+    .company-block { margin-bottom: 24px; }
+    .company-block .exp-repo-grid { gap: 12px; }
   }
 }

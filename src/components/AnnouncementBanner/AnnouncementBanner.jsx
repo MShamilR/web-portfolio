@@ -8,13 +8,13 @@ const AnnouncementBanner = () => {
 
   return (
     <div className="announcement-banner">
-      <span className="announcement-badge">Upcoming</span>
+      <span className="announcement-badge">Now building</span>
       <p>
         I&apos;m building{" "}
         <a href="https://klokd.app" target="_blank" rel="noopener noreferrer">
           klokd.app
         </a>{" "}
-        — stay tuned!
+        — follow the journey from product to market.
       </p>
       <button
         className="announcement-close"

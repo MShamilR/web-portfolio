@@ -1,161 +1,92 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
 import "./ContactModal.scss";
-import { logEvent } from "../../analytics";
 
-const emptyState = {
-  senderName: "",
-  senderEmail: "",
-  message: "",
-  errors: {},
-  loading: false,
-  apiError: false,
-  submitted: false,
-};
+const initialForm = { name: "", email: "", message: "" };
 
 const ContactModal = ({ isOpen, onClose }) => {
-  const [state, setState] = useState(emptyState);
-  const { senderName, senderEmail, message, errors, loading, apiError, submitted } = state;
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
 
-  // Close on Escape key
   useEffect(() => {
-    const handleKey = (e) => { if (e.key === "Escape") onClose(); };
-    if (isOpen) document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
+    if (!isOpen) return undefined;
+    const closeOnEscape = (event) => event.key === "Escape" && onClose();
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
   }, [isOpen, onClose]);
-
-  // Prevent body scroll when open
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
-
-  const set = (patch) => setState((prev) => ({ ...prev, ...patch }));
-
-  const validate = () => {
-    const errs = {};
-    if (!senderName.trim()) errs.name = "Name cannot be empty";
-    if (!senderEmail.trim()) errs.email = "Email cannot be empty";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail)) errs.email = "Enter a valid email";
-    if (!message.trim()) errs.message = "Message cannot be empty";
-    set({ errors: errs });
-    return Object.keys(errs).length === 0;
-  };
-
-  const handleChange = ({ target: { name, value } }) => {
-    set({ errors: {}, [name]: value });
-  };
-
-  const handleSubmit = async () => {
-    set({ apiError: false });
-    logEvent("Contact Modal", "Send", "Click Send in modal");
-    if (!validate()) return;
-    set({ loading: true });
-
-    const formData = new FormData();
-    formData.append("access_key", import.meta.env.VITE_WEB3FORM_ACCESS_KEY);
-    formData.append("name", senderName);
-    formData.append("email", senderEmail);
-    formData.append("message", message);
-
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-
-    if (data.success) {
-      set({ loading: false, submitted: true });
-    } else {
-      set({ loading: false, apiError: true });
-    }
-  };
-
-  const handleClose = () => {
-    setState(emptyState);
-    onClose();
-  };
 
   if (!isOpen) return null;
 
-  return ReactDOM.createPortal(
-    <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+  const updateField = ({ target: { name, value } }) => {
+    setForm((current) => ({ ...current, [name]: value }));
+  };
+
+  const submit = async (event) => {
+    event.preventDefault();
+    setStatus("submitting");
+    setError("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORM_ACCESS_KEY,
+          subject: "New portfolio enquiry",
+          from_name: form.name,
+          ...form,
+        }),
+      });
+      const result = await response.json();
+      if (!result.success) throw new Error("Submission failed");
+      setStatus("success");
+      setForm(initialForm);
+    } catch {
+      setStatus("error");
+      setError("I couldn't send that just now. Please try again in a moment.");
+    }
+  };
+
+  return (
+    <div className="modal-overlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <div className="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-title">
         <div className="modal-header">
-          <span className="modal-title">Get in Touch</span>
-          <button className="modal-close" onClick={handleClose} aria-label="Close">✕</button>
+          <span className="modal-title" id="contact-title">Start a conversation</span>
+          <button className="modal-close" onClick={onClose} aria-label="Close contact form">×</button>
         </div>
         <hr className="modal-divider" />
-
-        {submitted ? (
+        {status === "success" ? (
           <div className="modal-success">
-            <div className="success-icon">✉️</div>
-            <h4>Message received!</h4>
-            <p>I'll get back to you within 24 hours.</p>
-            <button className="modal-btn-primary" onClick={handleClose}>
-              Close
-            </button>
+            <div className="success-icon" aria-hidden="true">✓</div>
+            <h4>Message sent</h4>
+            <p>Thanks for reaching out. I&apos;ll get back to you soon.</p>
+            <button className="modal-btn-primary" onClick={onClose}>Done</button>
           </div>
         ) : (
-          <div className="modal-body">
+          <form className="modal-body" onSubmit={submit}>
             <div className="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                name="senderName"
-                value={senderName}
-                onChange={handleChange}
-                placeholder="Your name"
-                autoFocus
-              />
-              {errors.name && <small className="field-error">{errors.name}</small>}
+              <label htmlFor="contact-name">Name</label>
+              <input id="contact-name" name="name" value={form.name} onChange={updateField} required autoFocus />
             </div>
-
             <div className="form-group">
-              <label>Email</label>
-              <input
-                type="text"
-                name="senderEmail"
-                value={senderEmail}
-                onChange={handleChange}
-                placeholder="your@email.com"
-              />
-              {errors.email && <small className="field-error">{errors.email}</small>}
+              <label htmlFor="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" value={form.email} onChange={updateField} required />
             </div>
-
             <div className="form-group">
-              <label>Message</label>
-              <textarea
-                name="message"
-                value={message}
-                onChange={handleChange}
-                placeholder="Tell me about your project..."
-                rows={4}
-              />
-              {errors.message && <small className="field-error">{errors.message}</small>}
+              <label htmlFor="contact-message">What are you working on?</label>
+              <textarea id="contact-message" name="message" rows="5" value={form.message} onChange={updateField} required />
             </div>
-
-            {apiError && (
-              <small className="field-error">Something went wrong. Please try again.</small>
-            )}
-
+            {error && <span className="field-error" role="alert">{error}</span>}
             <div className="modal-actions">
-              <button
-                className="modal-btn-primary"
-                onClick={handleSubmit}
-                disabled={loading}
-              >
-                {loading ? "Sending..." : "Send Message"}
+              <button className="modal-btn-primary" type="submit" disabled={status === "submitting"}>
+                {status === "submitting" ? "Sending…" : "Send message"}
               </button>
-              <button className="modal-btn-secondary" onClick={handleClose}>
-                Cancel
-              </button>
+              <button className="modal-btn-secondary" type="button" onClick={onClose}>Cancel</button>
             </div>
-          </div>
+          </form>
         )}
       </div>
-    </div>,
-    document.body
+    </div>
   );
 };
 

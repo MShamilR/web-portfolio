@@ -20,6 +20,16 @@
       background-color: #ffffff;
     }
 
+    &.flush {
+      border: none;
+
+      .company-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
     .company-logo {
       width: 28px;
       height: 28px;
@@ -57,6 +67,48 @@
     margin-top: 0;
   }
 
+  .experience-topline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    .experience-identity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .company-logo-wrap {
+      flex: 0 0 40px;
+      margin-bottom: 0;
+    }
+
+    .experience-heading {
+      min-width: 0;
+
+      p { margin: 2px 0 0; }
+    }
+
+    .date-capsule {
+      flex-shrink: 0;
+      padding: 4px 12px;
+      border: 1px solid var(--gh-border);
+      border-radius: 16px;
+      font-size: 12px;
+      color: var(--gh-text-secondary);
+      background-color: var(--gh-bg);
+      white-space: nowrap;
+    }
+  }
+
+  .experience-summary {
+    margin: 10px 0 14px;
+    color: var(--gh-text-primary);
+    line-height: 1.5;
+  }
+
   .repo-details {
     display: flex;
     justify-content: space-between;
@@ -70,7 +122,17 @@
   }
 
   @media (max-width: 480px) {
-    h4 { font-size: 0.9rem; }
-    p { font-size: 0.8rem; }
+    padding: 14px;
+
+    .experience-topline {
+      .date-capsule {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+      }
+    }
+
+    h4 { font-size: 1rem; }
+    p { font-size: 0.85rem; }
+    .repo-details > span { flex-wrap: wrap; row-gap: 4px; }
   }
 }

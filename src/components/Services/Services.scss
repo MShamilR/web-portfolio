@@ -8,6 +8,7 @@
   }
 
   .services-box {
+    display: flex;
     background-color: var(--gh-bg);
     border: 1px solid var(--gh-border);
     border-radius: 8px;
@@ -16,6 +17,7 @@
     font-size: 0.95rem;
     line-height: 1.8;
     flex-wrap: wrap;
+    gap: 6px 12px;
 
     .service-label {
       white-space: nowrap;
@@ -24,6 +26,16 @@
     .sep {
       color: var(--gh-border);
       font-weight: bold;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-box {
+      padding: 12px 14px;
+      gap: 7px 10px;
+      font-size: 0.85rem;
+
+      .sep { display: none; }
     }
   }
 }

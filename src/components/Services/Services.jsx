@@ -1,12 +1,12 @@
 import "./Services.scss";
 
 const services = [
+  "0→1 Product Strategy",
   "MVP Development",
-  "Technical Co-Founder",
-  "Custom Full-Stack Development",
-  "Third Party Integrations",
-  "AI-Accelarated Development",
-  "Vibe Code Cleanup",
+  "Go-to-Market",
+  "Growth Experiments",
+  "Full-Stack Engineering",
+  "Technical Due Diligence",
 ];
 
 const Services = () => {

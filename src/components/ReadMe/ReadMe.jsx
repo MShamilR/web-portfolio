@@ -17,11 +17,13 @@ const ReadMe = ({ theme, toggleTheme, onContact }) => {
           <FontAwesomeIcon icon={theme === "dark" ? faSun : faMoon} />
         </button>
       </div>
-      <h2>Hola 👋</h2>
+      <p className="eyebrow">FOUNDER · PRODUCT · ENGINEERING · GTM</p>
+      <h2>I build products from zero to market.</h2>
       <hr className="divider" />
       <p>
-        I know the full stack and where it hurts. Shipped real products, scaled
-        real systems. Let's build yours.
+        I&apos;m a software engineer and startup operator working across product,
+        growth, and go-to-market. I turn early ideas into focused products,
+        ship the technology, and help them find their first path to growth.
       </p>
       <div style={{ paddingTop: "1.2rem" }}>
         <button
@@ -31,7 +33,7 @@ const ReadMe = ({ theme, toggleTheme, onContact }) => {
             onContact();
           }}
         >
-          Let's Build Something Great
+          Start a conversation
         </button>
       </div>
     </div>

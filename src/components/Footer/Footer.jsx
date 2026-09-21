@@ -1,4 +1,5 @@
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -6,16 +7,8 @@ const Footer = () => {
     <footer className="site-footer">
       <p>
         <span>&copy; {new Date().getFullYear()} MShamilR.</span>
-        <span>&nbsp;</span>
-        <span>
-          Inspired by{" "}
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+        <span className="github-note">
+          Inspired by GitHub <FontAwesomeIcon icon={faGithub} aria-label="GitHub" />
         </span>
       </p>
     </footer>
